@@ -1,0 +1,49 @@
+{
+    "persone": [
+      {
+        "nome": "Andrea",
+        "cognome": "Rovetta",
+        "eta": 22,
+        "indirizzo": "via Luca Rovetta 5",
+        "citta": "Rho",
+        "telefoni": [
+          { "telefono": "333457628" },
+          { "telefono": "347563868" }
+        ],
+        "sport": [
+          { "nome_sport": "calisthenics" },
+          { "nome_sport": "moto" }
+        ]
+      },
+      {
+        "nome": "Leonardo",
+        "cognome": "Stanco",
+        "eta": 65,
+        "indirizzo": "via Davide Rovetta 5",
+        "citta": "Rho",
+        "telefoni": [
+          { "telefono": "223452346" },
+          { "telefono": "986543828" }
+        ],
+        "sport": [
+          { "nome_sport": "palestra" },
+          { "nome_sport": "triciclo non leggero" }
+        ]
+      },
+      {
+        "nome": "Gabriele",
+        "cognome": "Milanov",
+        "eta": 7,
+        "indirizzo": "via Sovico Milanov 7",
+        "citta": "Rho",
+        "telefoni": [
+          { "telefono": "436864383" },
+          { "telefono": "5467754468" }
+        ],
+        "sport": [
+          { "nome_sport": "divano" },
+          { "nome_sport": "cane" }
+        ]
+      }
+    ]
+  }

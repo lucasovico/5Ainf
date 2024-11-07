@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Anagrafica</title>
+  </head>
+  <body>
+
+    <h1>Anagrafica</h1>
+    <p id="demo"></p>
+
+    <script> //per far funzionare bisogna scrivere nel terminale questo comando, perchè viene aperto chrome disattivando delle sicurezze:" open -n -a "Google Chrome" --args --disable-web-security --user-data-dir=/tmp/chrome_dev "
+
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          try {
+            var myObj = JSON.parse(this.responseText);
+
+            var info = ""; // stringa raccolta dati dati
+
+            
+            myObj.persone.forEach(function(persona) {
+              info += persona.nome + " " + persona.cognome + ", eta: " + persona.eta + ", indirizzo: " + persona.indirizzo + ", citta: " + persona.citta + ", telefono1: " + persona.telefoni[0].telefono + ", telefono2: " + persona.telefoni[1].telefono + ", Sport1: " + persona.sport[0].nome_sport + ", Sport2: " + persona.sport[1].nome_sport + "<br>" + "<br>";
+              
+            });
+
+            
+            document.getElementById("demo").innerHTML = info;// stampa dati in paragrafo con id demo
+          } catch (error) {
+            console.error("Errore nel parsing del JSON:", error);
+          }
+        } else if (this.readyState == 4) {
+          console.error("Errore nel caricamento del file JSON. Stato:", this.status);
+        }
+      };
+
+      
+      xmlhttp.open("GET", "anagrafica.json", true);
+      xmlhttp.send();
+    </script>
+
+  </body>
+</html>
