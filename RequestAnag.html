@@ -1,13 +1,43 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
     <title>Anagrafica</title>
-  </head>
-  <body>
+    <style>
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
     <h1>Anagrafica</h1>
-    <p id="demo"></p>
+    <div id="demo"></div>
 
-    <script> //per far funzionare bisogna scrivere nel terminale questo comando, perchè viene aperto chrome disattivando delle sicurezze:" open -n -a "Google Chrome" --args --disable-web-security --user-data-dir=/tmp/chrome_dev "
+    <script>
+      
 
       var xmlhttp = new XMLHttpRequest();
 
@@ -16,16 +46,18 @@
           try {
             var myObj = JSON.parse(this.responseText);
 
-            var info = ""; // stringa raccolta dati dati
-
+            // categ tabella
+            var info = "<table><tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono 1</th><th>Telefono 2</th><th>Sport 1</th><th>Sport 2</th></tr>";
             
+            // Dati  persone
             myObj.persone.forEach(function(persona) {
-              info += persona.nome + " " + persona.cognome + ", eta: " + persona.eta + ", indirizzo: " + persona.indirizzo + ", citta: " + persona.citta + ", telefono1: " + persona.telefoni[0].telefono + ", telefono2: " + persona.telefoni[1].telefono + ", Sport1: " + persona.sport[0].nome_sport + ", Sport2: " + persona.sport[1].nome_sport + "<br>" + "<br>";
-              
+              info += "<tr><td>" + persona.nome + "</td><td>" + persona.cognome + "</td><td>" + persona.eta + "</td><td>" + persona.indirizzo + "</td><td>" + persona.citta + "</td><td>" + persona.telefoni[0].telefono + "</td><td>" + persona.telefoni[1].telefono + "</td><td>" + persona.sport[0].nome_sport + "</td><td>" + persona.sport[1].nome_sport + "</td></tr>";
             });
 
-            
-            document.getElementById("demo").innerHTML = info;// stampa dati in paragrafo con id demo
+            info += "</table>"; // chiusura della tabella
+
+            //  tabella messa in elemento con id "demo"
+            document.getElementById("demo").innerHTML = info;
           } catch (error) {
             console.error("Errore nel parsing del JSON:", error);
           }
@@ -34,10 +66,9 @@
         }
       };
 
-      
       xmlhttp.open("GET", "anagrafica (2).json", true);
       xmlhttp.send();
     </script>
 
-  </body>
+</body>
 </html>
