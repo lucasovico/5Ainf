@@ -50,7 +50,7 @@
             myObj.persone.forEach(function(persona) {
               var sportList = persona.sport.map(function(sport) {
                 return sport.nome_sport;
-              }).join(", "); //unisce gli sport con virgola
+              }).join(", "); //unisce sport con virgola
 
               info += "<tr>" +
                         "<td><a href='cv.html?id=" + persona.id + "'><img src='" + persona.thumbnail + "' alt='Immagine di " + persona.nome + "' class='thumb'></a></td>" +
