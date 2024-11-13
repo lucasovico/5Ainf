@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="it">
 <head>
     <title>Anagrafica con cv</title>
     <style>
@@ -44,14 +43,14 @@
           try {
             var myObj = JSON.parse(this.responseText);
 
-            // Intestazioni della tabella
+            //campi tabella
             var info = "<table><tr><th>Thumbnail</th><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono</th><th>Sport</th></tr>";
 
-            // Dati per ogni persona
+            // dati persone(ognuna)
             myObj.persone.forEach(function(persona) {
               var sportList = persona.sport.map(function(sport) {
                 return sport.nome_sport;
-              }).join(", "); // Unisce gli sport con una virgola
+              }).join(", "); //unisce gli sport con virgola
 
               info += "<tr>" +
                         "<td><a href='cv.html?id=" + persona.id + "'><img src='" + persona.thumbnail + "' alt='Immagine di " + persona.nome + "' class='thumb'></a></td>" +
