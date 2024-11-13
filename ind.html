@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="it">
 <head>
     <title>Anagrafica con cv</title>
     <style>
@@ -38,44 +39,47 @@
     <script>
       var xmlhttp = new XMLHttpRequest();
 
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    try {
-      var myObj = JSON.parse(this.responseText);
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          try {
+            var myObj = JSON.parse(this.responseText);
 
-      // Intestazioni della tabella
-      var info = "<table><tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono</th><th>Sport</th></tr>";
-      
-      // Dati per ogni persona
-      myObj.persone.forEach(function(persona) {
-        var sportList = persona.sport.map(function(sport) {
-          return sport.nome_sport;
-        }).join(", "); // Unisce gli sport con una virgola
+            // Intestazioni della tabella
+            var info = "<table><tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono</th><th>Sport</th><th>Thumbnail</th></tr>";
+            
+            // Dati per ogni persona
+            myObj.persone.forEach(function(persona) {
+              var sportList = persona.sport.map(function(sport) {
+                return sport.nome_sport;
+              }).join(", "); // Unisce gli sport con una virgola
 
-        info += "<tr>" +
-                  "<td>" + persona.nome + "</td>" +
-                  "<td>" + persona.cognome + "</td>" +
-                  "<td>" + persona.eta + "</td>" +
-                  "<td>" + persona.indirizzo + "</td>" +
-                  "<td>" + persona.citta + "</td>" +
-                  "<td>" + persona.telefoni.map(function(tel) { return tel.telefono; }).join(", ") + "</td>" +
-                  "<td>" + sportList + "</td>" +
-                "</tr>";
-      });
+              // Aggiungi la colonna per l'immagine
+              info += "<tr>" +
+                        "<td>" + persona.nome + "</td>" +
+                        "<td>" + persona.cognome + "</td>" +
+                        "<td>" + persona.eta + "</td>" +
+                        "<td>" + persona.indirizzo + "</td>" +
+                        "<td>" + persona.citta + "</td>" +
+                        "<td>" + persona.telefoni.map(function(tel) { return tel.telefono; }).join(", ") + "</td>" +
+                        "<td>" + sportList + "</td>" +
+                        "<td><a href='dettagli.html?id=" + persona.id + "'>" +
+                        "<img src='" + persona.thumbnail + "' alt='Thumbnail' class='thumb'></a></td>" +  // Aggiungi l'immagine come link
+                      "</tr>";
+            });
 
-      info += "</table>";
-      
-      document.getElementById("demo").innerHTML = info;
-    } catch (error) {
-      console.error("Errore nel parsing del JSON:", error);
-    }
-  } else if (this.readyState == 4) {
-    console.error("Errore nel caricamento del file JSON. Stato:", this.status);
-  }
-};
+            info += "</table>";
+            
+            document.getElementById("demo").innerHTML = info;
+          } catch (error) {
+            console.error("Errore nel parsing del JSON:", error);
+          }
+        } else if (this.readyState == 4) {
+          console.error("Errore nel caricamento del file JSON. Stato:", this.status);
+        }
+      };
 
-xmlhttp.open("GET", "anagrafica (3).json", true);
-xmlhttp.send();
+      xmlhttp.open("GET", "anagrafica (3).json", true);
+      xmlhttp.send();
     </script>
 
 </body>
