@@ -15,7 +15,7 @@
         { "nome_sport": "calisthenics" },
         { "nome_sport": "moto" }
       ],
-      "thumbnail": "path/to/thumbnail-andrea.jpg"
+      "thumbnail": "https://github.com/lucasovico/5Ainf/blob/main/persona1.jpeg"
     },
     {
       "id": 2,
