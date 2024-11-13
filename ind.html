@@ -45,16 +45,16 @@
             var myObj = JSON.parse(this.responseText);
 
             // Intestazioni della tabella
-            var info = "<table><tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono</th><th>Sport</th><th>Thumbnail</th></tr>";
-            
+            var info = "<table><tr><th>Thumbnail</th><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono</th><th>Sport</th></tr>";
+
             // Dati per ogni persona
             myObj.persone.forEach(function(persona) {
               var sportList = persona.sport.map(function(sport) {
                 return sport.nome_sport;
               }).join(", "); // Unisce gli sport con una virgola
 
-              // Aggiungi la colonna per l'immagine
               info += "<tr>" +
+                        "<td><a href='dettagli.html?id=" + persona.id + "'><img src='" + persona.thumbnail + "' alt='Immagine di " + persona.nome + "' class='thumb'></a></td>" +
                         "<td>" + persona.nome + "</td>" +
                         "<td>" + persona.cognome + "</td>" +
                         "<td>" + persona.eta + "</td>" +
@@ -62,8 +62,6 @@
                         "<td>" + persona.citta + "</td>" +
                         "<td>" + persona.telefoni.map(function(tel) { return tel.telefono; }).join(", ") + "</td>" +
                         "<td>" + sportList + "</td>" +
-                        "<td><a href='dettagli.html?id=" + persona.id + "'>" +
-                        "<img src='" + persona.thumbnail + "' alt='Thumbnail' class='thumb'></a></td>" +  // Aggiungi l'immagine come link
                       "</tr>";
             });
 
@@ -73,12 +71,10 @@
           } catch (error) {
             console.error("Errore nel parsing del JSON:", error);
           }
-        } else if (this.readyState == 4) {
-          console.error("Errore nel caricamento del file JSON. Stato:", this.status);
         }
       };
 
-      xmlhttp.open("GET", "anagrafica (3).json", true);
+      xmlhttp.open("GET", "anagrafica.json", true);
       xmlhttp.send();
     </script>
 
