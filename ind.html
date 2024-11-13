@@ -54,7 +54,7 @@
               }).join(", "); // Unisce gli sport con una virgola
 
               info += "<tr>" +
-                        "<td><a href='dettagli.html?id=" + persona.id + "'><img src='" + persona.thumbnail + "' alt='Immagine di " + persona.nome + "' class='thumb'></a></td>" +
+                        "<td><a href='cv.html?id=" + persona.id + "'><img src='" + persona.thumbnail + "' alt='Immagine di " + persona.nome + "' class='thumb'></a></td>" +
                         "<td>" + persona.nome + "</td>" +
                         "<td>" + persona.cognome + "</td>" +
                         "<td>" + persona.eta + "</td>" +
@@ -74,7 +74,7 @@
         }
       };
 
-      xmlhttp.open("GET", "https://raw.githubusercontent.com/lucasovico/5Ainf/main/anagrafica.json", true);
+      xmlhttp.open("GET", "anagrafica%20(3).json", true);
       xmlhttp.send();
     </script>
 
