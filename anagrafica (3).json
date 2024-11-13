@@ -49,7 +49,7 @@
         { "nome_sport": "divano" },
         { "nome_sport": "cane" }
       ],
-      "thumbnail": "path/to/thumbnail-gabriele.jpg"
+      "thumbnail": "https://github.com/lucasovico/5Ainf/blob/main/persona3.jpeg"
     }
   ]
 }
