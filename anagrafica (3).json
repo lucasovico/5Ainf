@@ -32,7 +32,7 @@
         { "nome_sport": "palestra" },
         { "nome_sport": "triciclo non leggero" }
       ],
-      "thumbnail": "path/to/thumbnail-leonardo.jpg"
+      "thumbnail": "https://github.com/lucasovico/5Ainf/blob/main/persona2.jpeg"
     },
     {
       "id": 3,
