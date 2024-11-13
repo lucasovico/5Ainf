@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>CV persona</title>
+    <style>
+        .details {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .details h2 {
+            text-align: center;
+        }
+
+        .details img {
+            display: block;
+            margin: auto;
+            width: 150px;
+            height: 150px;
+        }
+
+        .details p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="details">
+        <h2>Dettagli del Soggetto</h2>
+        <img id="thumb" src="" alt="Immagine del soggetto">
+        <p id="info"></p>
+    </div>
+
+    <script>
+      // Ottiene l'ID dal parametro URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          try {
+            var myObj = JSON.parse(this.responseText);
+
+            // Cerca il soggetto in base all'ID
+            var persona = myObj.persone.find(p => p.id == id);
+
+            if (persona) {
+              // Inserisce i dati del soggetto nella pagina
+              document.getElementById("thumb").src = persona.thumbnail;
+              document.getElementById("info").innerHTML = 
+                  "Nome: " + persona.nome + "<br>" +
+                  "Cognome: " + persona.cognome + "<br>" +
+                  "Età: " + persona.eta + "<br>" +
+                  "Indirizzo: " + persona.indirizzo + "<br>" +
+                  "Città: " + persona.citta + "<br>" +
+                  "Telefono 1: " + persona.telefoni[0].telefono + "<br>" +
+                  "Telefono 2: " + persona.telefoni[1].telefono + "<br>" +
+                  "Sport 1: " + persona.sport[0].nome_sport + "<br>" +
+                  "Sport 2: " + persona.sport[1].nome_sport;
+            } else {
+              document.getElementById("info").innerHTML = "Soggetto non trovato.";
+            }
+          } catch (error) {
+            console.error("Errore nel parsing del JSON:", error);
+          }
+        }
+      };
+
+      xmlhttp.open("GET", "anagrafica.json", true);
+      xmlhttp.send();
+    </script>
+
+</body>
+</html>
