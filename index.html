@@ -16,31 +16,35 @@
         /* Navbar */
         .navbar {
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
             background-color: #333;
             color: white;
             padding: 15px 20px;
+            text-align: center;
         }
 
-        .navbar-left p {
-            font-size: 1.5em;
+        .navbar p {
+            font-size: 2em;
             font-weight: bold;
         }
 
-        /* Stile per l'iframe */
-        #visualizza {
-            width: 100%;
-            height: calc(100vh - 60px); /* Altezza meno la navbar */
-            border: none;
-        }
-
-        /* Stile per il corpo della pagina */
+        /* Stile per il corpo e l'iframe */
         body {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
             background-color: #f4f4f9;
+        }
+
+        #visualizza {
+            width: 80%; /* Margini per migliorare il layout */
+            height: 70vh; /* Altezza visibile dell'iframe */
+            border: none;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -48,15 +52,11 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <div class="navbar-left">
-            <p>Luca Rovetta</p>
-        </div>
+        <p>Luca Rovetta</p>
     </div>
 
     <!-- Contenuto principale con iframe -->
-    <div>
-        <iframe name="visualizza" id="visualizza" src="home.html"></iframe>
-    </div>
+    <iframe name="visualizza" id="visualizza" src="home.html"></iframe>
 
 </body>
 </html>
