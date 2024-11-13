@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Anagrafica</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        img.thumb {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Anagrafica</h1>
+    <div id="demo"></div>
+
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          try {
+            var myObj = JSON.parse(this.responseText);
+
+            // Intestazioni della tabella
+            var info = "<table><tr><th>Nome</th><th>Cognome</th><th>Età</th><th>Indirizzo</th><th>Città</th><th>Telefono</th><th>Thumbnail</th></tr>";
+            
+            // Dati per ogni persona
+            myObj.persone.forEach(function(persona) {
+              info += "<tr>" +
+                        "<td>" + persona.nome + "</td>" +
+                        "<td>" + persona.cognome + "</td>" +
+                        "<td>" + persona.eta + "</td>" +
+                        "<td>" + persona.indirizzo + "</td>" +
+                        "<td>" + persona.citta + "</td>" +
+                        "<td>" + persona.telefoni[0].telefono + "</td>" +
+                        "<td><a href='dettagli.html?id=" + persona.id + "'>" +
+                        "<img src='" + persona.thumbnail + "' alt='Thumbnail' class='thumb'></a></td>" +
+                      "</tr>";
+            });
+
+            info += "</table>";
+
+            document.getElementById("demo").innerHTML = info;
+          } catch (error) {
+            console.error("Errore nel parsing del JSON:", error);
+          }
+        } else if (this.readyState == 4) {
+          console.error("Errore nel caricamento del file JSON. Stato:", this.status);
+        }
+      };
+
+      xmlhttp.open("GET", "anagrafica.json", true);
+      xmlhttp.send();
+    </script>
+
+</body>
+</html>
