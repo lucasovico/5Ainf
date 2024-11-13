@@ -37,7 +37,7 @@
     </div>
 
     <script>
-      // Ottiene l'ID dal parametro URL
+      //riceve l'ID dal parametro URL
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get("id");
 
@@ -48,19 +48,20 @@
           try {
             var myObj = JSON.parse(this.responseText);
 
-            // Cerca il soggetto in base all'ID
+            //trova persona in base a id
             var persona = myObj.persone.find(p => p.id == id);
 
-            if (persona) {
+              //per controllare che l'immagine sia disponibile e in caso non lo sia ne mette una di base
+            /*if (persona) {
               // Verifica che l'immagine sia disponibile
               const imgElement = document.getElementById("thumb");
               imgElement.src = persona.thumbnail;
               imgElement.onerror = function() {
-                imgElement.src = "default-image.jpg"; // Immagine di fallback in caso di errore
+                imgElement.src = "default-image.jpg"; // img di fallback in caso di errore
                 console.error("Immagine non trovata, usando immagine di fallback.");
-              };
+              };*/
 
-              // Inserisce i dati del soggetto nella pagina
+              //dati soggetto messi in campi
               document.getElementById("info").innerHTML = 
                   "Nome: " + persona.nome + "<br>" +
                   "Cognome: " + persona.cognome + "<br>" +
@@ -72,7 +73,7 @@
                   "Sport 1: " + persona.sport[0].nome_sport + "<br>" +
                   "Sport 2: " + persona.sport[1].nome_sport;
             } else {
-              document.getElementById("info").innerHTML = "Soggetto non trovato.";
+              document.getElementById("info").innerHTML = "persona non trovaat.";
             }
           } catch (error) {
             console.error("Errore nel parsing del JSON:", error);
