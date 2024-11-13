@@ -1,31 +1,62 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luca Rovetta</title>
+    <style>
+        /* Stile di base per una presentazione pulita */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-    <head>
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+        }
 
-        <title> Luca Rovetta </title>
+        .navbar-left p {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
 
-    </head>
+        /* Stile per l'iframe */
+        #visualizza {
+            width: 100%;
+            height: calc(100vh - 60px); /* Altezza meno la navbar */
+            border: none;
+        }
 
+        /* Stile per il corpo della pagina */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+    </style>
+</head>
+<body>
 
-
-    </head>
-
-    <body>
-
-        <div class="navbar">
-
-            <div class="navbar-left">
-
-                <p> Luca Rovetta</p>
-
-            
-            </div>
-
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <p>Luca Rovetta</p>
         </div>
+    </div>
 
-        <div>
-            <iframe name="visualizza" id="visualizza" src="home.html" style="border: none; height: 100%; width: 100%; padding-bottom: 100px;"></iframe>
-        </div>
+    <!-- Contenuto principale con iframe -->
+    <div>
+        <iframe name="visualizza" id="visualizza" src="home.html"></iframe>
+    </div>
 
-    </body>
+</body>
 </html>
