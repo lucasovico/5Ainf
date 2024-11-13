@@ -15,7 +15,7 @@
         { "nome_sport": "calisthenics" },
         { "nome_sport": "moto" }
       ],
-      "thumbnail": "https://github.com/lucasovico/5Ainf/blob/main/persona1.jpeg"
+      "thumbnail": "https://raw.githubusercontent.com/lucasovico/5Ainf/main/persona1.jpeg"
     },
     {
       "id": 2,
@@ -32,7 +32,7 @@
         { "nome_sport": "palestra" },
         { "nome_sport": "triciclo non leggero" }
       ],
-      "thumbnail": "https://github.com/lucasovico/5Ainf/blob/main/persona2.jpeg"
+      "thumbnail": "https://raw.githubusercontent.com/lucasovico/5Ainf/main/persona2.jpeg"
     },
     {
       "id": 3,
@@ -49,7 +49,7 @@
         { "nome_sport": "divano" },
         { "nome_sport": "cane" }
       ],
-      "thumbnail": "https://github.com/lucasovico/5Ainf/blob/main/persona3.jpeg"
+      "thumbnail": "https://raw.githubusercontent.com/lucasovico/5Ainf/main/persona3.jpeg"
     }
   ]
 }
