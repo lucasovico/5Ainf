@@ -52,8 +52,15 @@
             var persona = myObj.persone.find(p => p.id == id);
 
             if (persona) {
+              // Verifica che l'immagine sia disponibile
+              const imgElement = document.getElementById("thumb");
+              imgElement.src = persona.thumbnail;
+              imgElement.onerror = function() {
+                imgElement.src = "default-image.jpg"; // Immagine di fallback in caso di errore
+                console.error("Immagine non trovata, usando immagine di fallback.");
+              };
+
               // Inserisce i dati del soggetto nella pagina
-              document.getElementById("thumb").src = persona.thumbnail;
               document.getElementById("info").innerHTML = 
                   "Nome: " + persona.nome + "<br>" +
                   "Cognome: " + persona.cognome + "<br>" +
