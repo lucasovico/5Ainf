@@ -52,14 +52,14 @@
             var persona = myObj.persone.find(p => p.id == id);
 
               //per controllare che l'immagine sia disponibile e in caso non lo sia ne mette una di base
-            /*if (persona) {
+            if (persona) {
               // Verifica che l'immagine sia disponibile
               const imgElement = document.getElementById("thumb");
               imgElement.src = persona.thumbnail;
               imgElement.onerror = function() {
                 imgElement.src = "default-image.jpg"; // img di fallback in caso di errore
                 console.error("Immagine non trovata, usando immagine di fallback.");
-              };*/
+              };
 
               //dati soggetto messi in campi
               document.getElementById("info").innerHTML = 
