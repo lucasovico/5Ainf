@@ -42,7 +42,7 @@
       var xmlhttp = new XMLHttpRequest();
 
       xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState == 4 && this.status == 200) {// usa onready cosi non devi mettere readystate == 4 nell'if
           try {
             var myObj = JSON.parse(this.responseText);
 
@@ -52,17 +52,17 @@
             // Dati  persone
             myObj.persone.forEach(function(persona) {
               info += "<tr><td>" + persona.nome + "</td><td>" + persona.cognome + "</td><td>" + persona.eta + "</td><td>" + persona.indirizzo + "</td><td>" + persona.citta + "</td><td>" + persona.telefoni[0].telefono + "</td><td>" + persona.telefoni[1].telefono + "</td><td>" + persona.sport[0].nome_sport + "</td><td>" + persona.sport[1].nome_sport + "</td></tr>";
-            });
+            });// ti consiglo di usare il backtick ` impara a usarlo cosi non devi fare tutte ste somme, inoltre non dare nomi troppo lunghi alle variabili a meno che non ti confondi
 
             info += "</table>"; // chiusura della tabella
 
             //  tabella messa in elemento con id "demo"
-            document.getElementById("demo").innerHTML = info;
+            document.getElementById("demo").innerHTML = info;// meglio un += in generale
           } catch (error) {
             console.error("Errore nel parsing del JSON:", error);
           }
         } else if (this.readyState == 4) {
-          console.error("Errore nel caricamento del file JSON. Stato:", this.status);
+          console.error("Errore nel caricamento del file JSON. Stato:", this.status);//bravo a meno che non sia opera di Ciano Geppetti aka ChatGPT
         }
       };
 
