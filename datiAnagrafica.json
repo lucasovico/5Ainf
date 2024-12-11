@@ -1,0 +1,34 @@
+{
+    "persone": [
+        {
+          "id": 1,
+          "nome": "Andrea",
+          "cognome": "Rovetta",
+          "eta": 18,
+          "indirizzo": "via Luca Rovetta 5",
+          "citta": "Lainate",
+          "thumb": "tucci.jpg",
+          "portfolio": "portfolio.png"
+        },
+        {
+          "id": 2,
+          "nome": "Leonardo",
+          "cognome": "Stanco",
+          "eta": 65,
+          "indirizzo": "via Davide Rovetta 5",
+          "citta": "Seregno",
+          "thumb": "freaky.jpg",
+          "portfolio": "portfolio.png"
+        },
+        {
+          "id": 3,
+          "nome": "Luca",
+          "cognome": "Milanov",
+          "eta": 7,
+          "indirizzo": "via Sovico Milanov 7",
+          "citta": "Rho",
+          "thumb": "freakyluca.jpg",
+          "portfolio": "portfolio.png"
+        }
+    ]
+}
