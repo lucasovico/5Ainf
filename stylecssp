@@ -1,0 +1,145 @@
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 35px;
+    background-color: #f0f8ff; 
+    color: #333; 
+    padding: 20px;
+}
+
+.titolo {
+    text-align: center;
+    font-size: 2em;
+    color: #007acc; 
+    margin-bottom: 20px;
+}
+
+.titoloDettagli{
+    font-size: 2em;
+    color: #007acc; 
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+input[type="button"] {
+    background-color: #007acc; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    display: block;
+    margin: 0 auto;
+}
+
+input[type="button"]:hover {
+    background-color: #005999; 
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #007acc; 
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007acc; 
+    color: white;
+}
+
+td {
+    background-color: white; 
+}
+
+#stringaJSON {
+    margin-top: 20px;
+}
+
+
+/*stile per CV*/
+
+.container-cv {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.colonna-sx {
+    flex: 1;
+    text-align: center;
+}
+
+.colonna-sx img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.info-personali p {
+    margin: 5px 0;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.colonna-dx {
+    flex: 2;
+}
+
+.colonna-dx p {
+    margin: 5px 1;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.titolo-sezione {
+    font-weight: bold;
+    margin-top: 25px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+
+/*container Pf*/
+.container-pf {
+
+    flex-direction: row;
+    gap: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.info-portfolio p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.abstract-portfolio{
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
