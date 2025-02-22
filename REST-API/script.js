@@ -55,7 +55,7 @@ function getPosts() {
     // Rimuove doppie "https://" e slash finali "/"
     urlSito = urlSito.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
-    var apiUrl = `https://${urlSito}/wp-json/wp/v2/posts`;
+    var apiUrl = `https://cors-anywhere.herokuapp.com/https://${urlSito}/wp-json/wp/v2/posts`;
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
